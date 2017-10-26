@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/translucent"
+    android:orientation="vertical"
+    android:gravity="bottom">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/mine_info_change_avatar_pad"
+        android:layout_marginRight="@dimen/mine_info_change_avatar_pad"
+        android:layout_marginBottom="@dimen/mine_info_change_avatar_pad"
+        android:orientation="vertical"
+        android:background="@drawable/mine_info_pop_bk3">
+
+        <TextView
+            android:text="无所谓"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_height"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/first_title_color"
+            android:gravity="center"
+            android:id="@+id/mine_info_marital_guess" />
+
+        <TextView
+            android:text="可约"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_height"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/first_title_color"
+            android:gravity="center"
+            android:id="@+id/mine_info_marital_single" />
+
+        <TextView
+            android:text="勿扰"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_height"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/first_title_color"
+            android:gravity="center"
+            android:id="@+id/mine_info_marital_couple" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/mine_info_change_avatar_pad"
+        android:layout_marginRight="@dimen/mine_info_change_avatar_pad"
+        android:layout_marginBottom="@dimen/mine_info_change_avatar_pad"
+        android:background="@drawable/mine_info_cancel"
+        android:id="@+id/mine_info_marital_cancel" />
+</LinearLayout>

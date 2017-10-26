@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_bk"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/div_width"
+        android:orientation="horizontal"
+        android:background="@drawable/create_travel_module_div">
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rv_select_travel_route">
+    </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/select_route_user_edit"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="15dp"
+            android:paddingLeft="23dp"
+            android:textColor="@color/select_route_user_hint"
+            android:textSize="@dimen/select_route_hint_size"
+            android:text="@string/select_route_user_hint"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:layout_marginBottom="116dp"
+            android:gravity="top"
+            android:id="@+id/travel_route_user_word"
+            android:hint="@string/select_route_user_hint_example"
+            android:textColorHint="@color/select_route_title_hint_color"
+            android:textSize="@dimen/select_route_hint_size"
+            android:textColor="@color/select_route_user_hint"
+            android:background="@drawable/select_route_user_input"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/generating_route"
+            android:textColor="@color/base_title"
+            android:background="@drawable/travel_button_press_bk"
+            android:id="@+id/create_travel_route"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="不满意，找小智"
+        android:textColor="@color/base_title"
+        android:background="@drawable/travel_button_press_bk_edge"
+        android:visibility="visible"
+        android:id="@+id/select_travel_route_reset"/>
+</LinearLayout>

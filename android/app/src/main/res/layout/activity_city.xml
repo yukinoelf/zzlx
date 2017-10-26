@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/default_top_bk"
+    tools:context="com.zhizulx.tt.ui.widget.city.CityActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_bar_default_height"
+        android:id="@+id/activity_city_top"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/base_left_right_pad"
+            android:background="@drawable/tt_top_back"
+            android:layout_centerVertical="true"
+            android:id="@+id/select_city_back"
+            android:scaleType="center" />
+
+        <TextView
+            android:text="@string/select_city_title"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/select_city_title"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textColor="@color/mian_title"
+            android:textSize="@dimen/mian_title_size" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_ccc"></View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/start_end_city"
+        android:text="@string/select_city_locating"
+        android:gravity="center"
+        android:id="@+id/select_city_result"
+        android:textColor="@color/switch_off"
+        android:textSize="@dimen/content_size"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.zhizulx.tt.ui.widget.city.MySlideView
+            android:id="@+id/my_slide_view"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/my_slide_view">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_sticky_example"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/base_bk"
+                android:scrollbars="none" />
+
+        </FrameLayout>
+
+        <com.zhizulx.tt.ui.widget.city.CircleTextView
+            android:id="@+id/my_circle_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</LinearLayout>

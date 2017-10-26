@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="no_weather_high">
+        <item>带上你的微笑，和我一起say hi ！</item>
+    </string-array>
+    <string-array name="no_weather_medium">
+        <item>生活就像白开水，想不想来点刺激的？</item>
+    </string-array>
+    <string-array name="no_weather_low">
+        <item>深呼吸、转一转，那都不是事儿。</item>
+    </string-array>
+    <string-array name="sunny_high">
+        <item>带上你的阳光，去看一看世间的繁华</item>
+        <item>阳光，马卡龙，让甜蜜绽放得更久一些</item>
+    </string-array>
+    <string-array name="sunny_medium">
+        <item>阳光洒在路上，就不怕太无聊</item>
+        <item>一杯奶茶，让无聊的你，拥有整个晴天</item>
+    </string-array>
+    <string-array name="sunny_low">
+        <item>窗外已放晴，也许我会好一点</item>
+        <item>卡布奇诺的等待，他说，总会遇见的</item>
+    </string-array>
+    <string-array name="overcast_high">
+        <item>舒适的日子，和我去街头走一走</item>
+        <item>拿去，赏你一颗巧克力，让阴天快乐～</item>
+    </string-array>
+    <string-array name="overcast_medium">
+        <item>窗外阴天了，我是无聊了</item>
+        <item>阴天，没有吃完的饼干，再分你一半</item>
+    </string-array>
+    <string-array name="overcast_low">
+        <item>想对着天讲，说无论如何，阴天快乐</item>
+        <item>阴天，在不开灯的房间，喝杯红酒</item>
+    </string-array>
+    <string-array name="rainy_high">
+        <item>淋雨一直走，遇到阳光就会暖和</item>
+        <item>听雨，品茶，岂不乐哉？</item>
+    </string-array>
+    <string-array name="rainy_medium">
+        <item>无聊的下雨天，我好像再淋一遍</item>
+        <item>喝着白开水，让雨下的更大一些</item>
+    </string-array>
+    <string-array name="rainy_low">
+        <item>下雨天了怎么办，我好忧伤</item>
+        <item>下雨的季节，盘底的洋葱，还是酸酸的</item>
+    </string-array>
+    <string-array name="snowy_high">
+        <item>下雪了，下雪了，我们就要出发了</item>
+        <item>据说下雪天吃冰淇淋，会更快乐哦～</item>
+    </string-array>
+    <string-array name="snowy_medium">
+        <item>我无聊的等，雪一片一片一片</item>
+        <item>堆个雪人，吃根胡萝卜，貌似这样，才不无聊～</item>
+    </string-array>
+    <string-array name="snowy_low">
+        <item>白茫茫的世界碎成雪，所有快乐都已化成水</item>
+        <item>一杯热牛奶，让下雪的日子，不再郁闷孤单～</item>
+    </string-array>
+</resources>

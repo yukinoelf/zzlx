@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal|bottom"
+    android:id="@+id/ly_create_travel_route_pop"
+    android:background="@color/translucent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="341dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="文艺"
+        android:textColor="@color/first_title_color"
+        android:textSize="@dimen/title_text_size"
+        android:id="@+id/create_travel_route_literature"
+        android:background="@drawable/shape_corner_up"/>
+
+    <TextView
+        android:layout_width="341dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="舒适"
+        android:textColor="@color/first_title_color"
+        android:textSize="@dimen/title_text_size"
+        android:id="@+id/create_travel_route_comfort"
+        android:background="@drawable/shape_line_left_right"/>
+
+    <ImageView
+        android:layout_width="341dp"
+        android:layout_height="1dp"
+        android:background="@color/edge"/>
+
+    <TextView
+        android:layout_width="341dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="探险"
+        android:textColor="@color/first_title_color"
+        android:textSize="@dimen/title_text_size"
+        android:id="@+id/create_travel_route_exploration"
+        android:background="@drawable/shape_line_left_right"/>
+
+    <ImageView
+        android:layout_width="341dp"
+        android:layout_height="1dp"
+        android:background="@color/edge"/>
+
+    <TextView
+        android:layout_width="341dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="刺激"
+        android:textColor="@color/first_title_color"
+        android:textSize="@dimen/title_text_size"
+        android:id="@+id/create_travel_route_excite"
+        android:background="@drawable/shape_line_left_right"/>
+
+    <TextView
+        android:layout_width="341dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="邂逅"
+        android:textColor="@color/first_title_color"
+        android:textSize="@dimen/title_text_size"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/create_travel_route_encounter"
+        android:background="@drawable/shape_corner_down"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/create_travel_route_cancel"
+        android:background="@drawable/create_travel_cancel"/>
+
+</LinearLayout>

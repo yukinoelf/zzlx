@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/map_sight_name_bk"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textColor="@color/show_sight_in_map"
+        android:textSize="@dimen/map_sight_name"
+        android:id="@+id/tv_sight_name" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-1.5dp"
+        android:background="@drawable/triangle_on_map"/>
+</LinearLayout>

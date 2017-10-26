@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/home_page"
+    android:background="@color/default_top_bk"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:background="@drawable/topbar"
+        android:id="@+id/home_page_top_status"
+        android:gravity="bottom">
+
+        <ImageView
+            android:background="@drawable/mine_icon"
+            android:layout_alignParentLeft="true"
+            android:layout_width="@dimen/mine_icon_width"
+            android:layout_height="@dimen/mine_icon_length"
+            android:id="@+id/mine_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/mine_icon_length"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textSize="@dimen/mian_title_size"
+            android:textColor="@color/mian_title"
+            android:text="@string/app_name"/>
+
+    </RelativeLayout>
+
+    <fragment
+        android:id="@+id/select_tag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.zhizulx.tt.ui.fragment.SelectTagFragment" />
+
+<!--    <fragment
+        android:id="@+id/select_tag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.zhizulx.tt.ui.fragment.TravelTipFragment"
+        tools:layout="@layout/tt_fragment_travel_tip" />-->
+</LinearLayout>

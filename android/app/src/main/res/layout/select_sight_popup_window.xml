@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ly_select_sight_pop"
+    android:background="@color/translucent"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="@string/select_sight_recommend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/not_clicked"
+        android:paddingLeft="@dimen/item_select_sight_not_screen_left_right"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/title_hint_size"
+        android:background="@drawable/select_sight_drop_item_bk"
+        android:id="@+id/select_sight_pop_not_screen" />
+
+    <TextView
+        android:text="@string/select_sight_free"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/not_clicked"
+        android:paddingLeft="@dimen/item_select_sight_not_screen_left_right"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/title_hint_size"
+        android:background="@drawable/select_sight_drop_item_bk"
+        android:id="@+id/select_sight_pop_free" />
+</LinearLayout>

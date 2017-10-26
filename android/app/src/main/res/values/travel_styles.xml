@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="starRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/star_rating_bar_full</item>
+        <item name="android:minHeight">48dip</item>
+        <item name="android:maxHeight">48dip</item>
+    </style>
+    <style name="AnimationLeftFade">
+        <item name="android:windowEnterAnimation">@anim/in_lefttoright</item>
+        <item name="android:windowExitAnimation">@anim/out_righttoleft</item>
+    </style>
+    <style name="AnimationBottomFade">
+        <item name="android:windowEnterAnimation">@anim/in_bottomtotop</item>
+        <item name="android:windowExitAnimation">@anim/out_toptobottom</item>
+    </style>
+</resources>

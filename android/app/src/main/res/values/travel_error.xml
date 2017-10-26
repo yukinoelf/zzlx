@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="create_travel_not_select_start_place">出发地未选择</string>
+    <string name="create_travel_not_select_end_place">返回地未选择</string>
+    <string name="create_travel_not_select_start_date">出发日期未选择</string>
+    <string name="create_travel_not_select_end_date">返回日期未选择</string>
+    <string name="create_travel_not_select_destination">目的地未选择</string>
+</resources>

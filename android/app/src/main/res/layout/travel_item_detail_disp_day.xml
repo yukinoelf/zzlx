@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/detail_disp_top"
+        android:layout_marginBottom="@dimen/detail_disp_bottom"
+        android:background="@drawable/detail_disp_day"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="@dimen/title_text_size"
+            android:textColor="@color/detail_disp_day"
+            android:gravity="center"
+            android:id="@+id/detail_disp_day" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:id="@+id/detail_disp_day_show_in_map"
+                android:text="在地图上看"
+                android:textSize="@dimen/detail_disp_day_title"
+                android:textColor="@color/detail_disp_day_bk"
+                android:drawablePadding="4dp"
+                android:drawableRight="@drawable/detail_disp_day_pos_tag"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

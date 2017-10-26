@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/select_city_selected"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/content_size"
+            android:textColor="@color/clicked"
+            android:text=""
+            android:layout_marginRight="@dimen/select_place_result_item_text_icon"
+            android:id="@+id/tvselect_city" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_city_result_delete"
+            android:id="@+id/select_city_del" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_bk"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="@dimen/select_place_top_bottom"
+        android:layout_marginBottom="@dimen/select_place_top_bottom"
+        android:visibility="visible"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:text="详细"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/select_place_hot"
+            android:textSize="@dimen/title_size"
+            android:background="@drawable/shape_corner_select_city_left_click"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="列表"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/select_place_nation"
+            android:textSize="@dimen/title_size"
+            android:background="@drawable/shape_corner_select_city_right_not_click"
+            android:textColor="@color/default_top_bk"
+            android:gravity="center"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_hot"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_name"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/item_select_sight_top_bottom"
+        android:paddingBottom="@dimen/item_select_sight_top_bottom"
+        android:paddingLeft="@dimen/item_select_sight_left"
+        android:background="@drawable/select_sight_item_bk"
+        android:id="@+id/ly_sight"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="@dimen/item_select_sight_pic"
+            android:layout_height="@dimen/item_select_sight_pic"
+            android:id="@+id/sight_pic" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/text_icon_between_person_num"
+            android:paddingTop="@dimen/item_select_sight_text_top">
+
+            <TextView
+                android:text="厦门大学"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/item_select_sight_cell_between"
+                android:textSize="@dimen/title_hint_size"
+                android:textColor="@color/not_clicked"
+                android:id="@+id/sight_name" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/starRatingBar"
+                    android:id="@+id/sight_star"
+                    android:maxHeight="12dp"
+                    android:minHeight="12dp"
+                    android:isIndicator="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/select_sight_star_play_time"
+                    android:textColor="@color/sight_play_time"
+                    android:id="@+id/sight_play_time"
+                    android:textSize="@dimen/title_size"
+                    android:text="建议游玩"/>
+            </LinearLayout>
+
+            <TextView
+                android:text="建筑 文化"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_select_sight_cell_between"
+                android:layout_marginBottom="@dimen/item_select_sight_cell_between"
+                android:textSize="@dimen/title_size"
+                android:textColor="@color/hint_color"
+                android:id="@+id/sight_tag" />
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="103dp"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sight_free"
+                    android:background="@drawable/no_ticket"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/must_go"
+                    android:background="@drawable/must_go"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="62dp"
+            android:layout_height="110dp"
+            android:background="@drawable/sight_selected"
+            android:id="@+id/sight_select" />
+
+    </LinearLayout>
+</LinearLayout>

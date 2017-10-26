@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_select_sight"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="6dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/select_sight_tool_bar_bk">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="76dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/select_sight_drop_bk"
+            android:gravity="center"
+            android:id="@+id/select_sight_drop"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp">
+
+            <TextView
+                android:text="@string/select_sight_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/not_clicked"
+                android:textSize="@dimen/title_hint_size"
+                android:id="@+id/select_sight_drop_text"
+                android:drawableRight="@drawable/down_arrow" />
+        </LinearLayout>
+
+        <TextView
+            android:text="全部"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/select_sight_tag_between"
+            android:background="@drawable/select_sight_tag_click"
+            android:textColor="@color/clicked"
+            android:textSize="@dimen/content_size"
+            android:gravity="center"
+            android:id="@+id/select_total" />
+
+        <TextView
+            android:text="文艺"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/select_sight_tag_between"
+            android:background="@drawable/select_sight_tag_not_click"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:gravity="center"
+            android:id="@+id/select_literature" />
+
+        <TextView
+            android:text="舒适"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/select_sight_tag_between"
+            android:background="@drawable/select_sight_tag_not_click"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:gravity="center"
+            android:id="@+id/select_comfort" />
+
+        <TextView
+            android:text="探险"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/select_sight_tag_between"
+            android:background="@drawable/select_sight_tag_not_click"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:gravity="center"
+            android:id="@+id/select_exploration" />
+
+        <TextView
+            android:text="刺激"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/select_sight_tag_between"
+            android:background="@drawable/select_sight_tag_not_click"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:gravity="center"
+            android:id="@+id/select_excite" />
+
+        <TextView
+            android:text="艳遇"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_sight_tag_not_click"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:gravity="center"
+            android:id="@+id/select_encounter" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_sight"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>

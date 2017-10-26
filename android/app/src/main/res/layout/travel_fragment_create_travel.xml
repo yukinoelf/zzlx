@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_bk"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="@string/time_place"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/title_size"
+        android:textColor="@color/first_title_color"
+        android:paddingLeft="@dimen/base_left_right_pad"
+        android:drawableTop="@drawable/create_travel_module_div"
+        android:drawableBottom="@drawable/create_travel_module_div"
+        android:id="@+id/create_travel_time_place" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/text_height"
+        android:id="@+id/rlcreate_travel_time"
+        android:background="@drawable/create_travel_con_bk">
+
+        <TextView
+            android:text="@string/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/tcreate_travel_time" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bn_click_arrow"
+            android:layout_marginLeft="@dimen/text_icon_between_pad"
+            android:layout_marginRight="@dimen/base_left_right_pad"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/icreate_travel_time" />
+
+        <TextView
+            android:text="@string/ask_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/hint_color"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/icreate_travel_time"
+            android:id="@+id/create_travel_time" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/create_travel_con_div" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/text_height"
+        android:id="@+id/rlcreate_travel_place"
+        android:background="@drawable/create_travel_con_bk">
+
+        <TextView
+            android:text="@string/destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/tcreate_travel_place" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bn_click_arrow"
+            android:layout_marginLeft="@dimen/text_icon_between_pad"
+            android:layout_marginRight="@dimen/base_left_right_pad"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/icreate_travel_place" />
+
+        <TextView
+            android:text="@string/ask_destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/hint_color"
+            android:layout_toStartOf="@+id/icreate_travel_place"
+            android:id="@+id/create_travel_place" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/create_travel_module_div" />
+    </RelativeLayout>
+
+    <TextView
+        android:text="@string/basic_info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:paddingLeft="@dimen/base_left_right_pad"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/title_size"
+        android:textColor="@color/first_title_color"
+        android:drawableTop="@drawable/create_travel_module_div"
+        android:drawableBottom="@drawable/create_travel_module_div"
+        android:id="@+id/create_travel_basic_info" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/text_height"
+        android:background="@drawable/create_travel_con_bk">
+
+        <TextView
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/text_icon_between_person_num"
+            android:layout_marginRight="@dimen/text_icon_between_person_num"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
+            android:layout_toStartOf="@+id/create_travel_per_num_add"
+            android:id="@+id/create_travel_per_num" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/create_travel_sub_grey"
+            android:id="@+id/create_travel_per_num_sub"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/create_travel_per_num" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/base_left_right_pad"
+            android:background="@drawable/create_travel_add"
+            android:id="@+id/create_travel_per_num_add"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:text="@string/person_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
+            android:id="@+id/tcreate_travel_per_num"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/create_travel_con_div" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/text_height"
+        android:id="@+id/rlcreate_travel_start"
+        android:background="@drawable/create_travel_con_bk">
+
+
+        <TextView
+            android:text="@string/start_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/tcreate_travel_start" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bn_click_arrow"
+            android:layout_marginLeft="@dimen/text_icon_between_pad"
+            android:layout_marginRight="@dimen/base_left_right_pad"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/icreate_travel_start" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/hint_color"
+            android:layout_toStartOf="@+id/icreate_travel_start"
+            android:id="@+id/create_travel_start" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/create_travel_con_div" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/text_height"
+        android:id="@+id/rlcreate_travel_end"
+        android:background="@drawable/create_travel_con_bk">
+
+
+        <TextView
+            android:text="@string/end_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/tcreate_travel_end" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bn_click_arrow"
+            android:layout_marginLeft="@dimen/text_icon_between_pad"
+            android:layout_marginRight="@dimen/base_left_right_pad"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/icreate_travel_end" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/hint_color"
+            android:layout_toStartOf="@+id/icreate_travel_end"
+            android:id="@+id/create_travel_end" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/create_travel_con_div" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/text_height"
+        android:id="@+id/rlcreate_travel_route"
+        android:background="@drawable/create_travel_con_bk">
+
+        <TextView
+            android:text="@string/route_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/tcreate_travel_route" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bn_click_arrow"
+            android:layout_marginLeft="@dimen/text_icon_between_pad"
+            android:layout_marginRight="@dimen/base_left_right_pad"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/icreate_travel_route" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/hint_color"
+            android:layout_toStartOf="@+id/icreate_travel_route"
+            android:id="@+id/create_travel_route" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/create_travel_module_div" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/generating_route"
+            android:textColor="@color/next_step"
+            android:textSize="@dimen/next_step"
+            android:background="@drawable/travel_button_press_bk_edge"
+            android:id="@+id/create_travel_next_step" />
+    </LinearLayout>
+
+</LinearLayout>

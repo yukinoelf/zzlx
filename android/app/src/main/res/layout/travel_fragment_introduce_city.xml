@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/contact_default_bk"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <FrameLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="fill_parent"
+        android:layout_height="384dp"
+        android:clickable="false"
+        android:orientation="vertical">
+
+        <com.zhizulx.tt.ui.widget.adver.ViewFlow
+            android:id="@+id/viewflow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:padding="3dip" >
+
+            <com.zhizulx.tt.ui.widget.adver.CircleFlowIndicator
+                android:id="@+id/viewflowindic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:padding="2dip"
+                app:activeType="fill"
+                app:circleSeparation="10dip"
+                app:inactiveColor="@color/title"
+                app:inactiveType="fill"
+                app:radius="4dip" />
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/introduce_city_back"
+            android:id="@+id/introduce_city_back" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="17dp"
+        android:textColor="@color/title"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/city_title_left_icon"
+        android:drawablePadding="10dp"
+        android:id="@+id/introduce_city_title"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="17dp"
+        android:textColor="@color/first_title_color"
+        android:textSize="15sp"
+        android:id="@+id/introduce_city_discription"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/city_select"
+            android:id="@+id/bn_city_select" />
+    </LinearLayout>
+
+</LinearLayout>

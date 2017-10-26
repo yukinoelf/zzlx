@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_disp_menu_item_height"
+        android:textColor="@color/base_title"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/item_traffic_detail_top_bottom"
+        android:textSize="@dimen/title_size"
+        android:id="@+id/tv_detail_disp_menu" />
+
+</LinearLayout>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/contact_default_bk"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="234dp"
+        android:orientation="vertical">
+
+        <com.zhizulx.tt.ui.widget.adver.ViewFlow
+            android:id="@+id/introduce_sight_bk"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <TextView
+            android:text="鼓浪屿"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="@dimen/mian_title_size"
+            android:textColor="@color/base_title"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/introduce_sight_name" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/tt_top_back"
+            android:id="@+id/introduce_sight_back" />
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_marginBottom="12dp"
+            android:layout_gravity="bottom">
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/starRatingBar"
+                android:id="@+id/introduce_sight_star"
+                android:maxHeight="12dp"
+                android:minHeight="12dp"
+                android:isIndicator="true" />
+
+            <com.zhizulx.tt.ui.widget.adver.CircleFlowIndicator
+                android:id="@+id/introduce_sight_indic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:padding="2dip"
+                app:activeType="fill"
+                app:circleSeparation="10dip"
+                app:inactiveColor="@color/title"
+                app:inactiveType="fill"
+                app:radius="4dip" />
+        </RelativeLayout>
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/introduce_sight_scrollview">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/introduce_sight_description_title"
+                android:layout_marginTop="17dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="岛上的人民都很悠闲，开了许多浪漫格调的小店。岛上的钢琴博物馆特别美，教堂和别墅都不错。里面的巷子很深，富有古典的气息，有一种浪漫的氛围。海鲜很便宜，最好避开节假日前往。"
+                android:textSize="@dimen/content_size"
+                android:textColor="@color/first_title_color"
+                android:id="@+id/introduce_sight_introduction"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/content_s"
+                android:visibility="gone"
+                android:textColor="@color/first_title_color"
+                android:id="@+id/introduce_sight_introduction_detail" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/introduce_sight_description_time_title"
+                android:layout_marginTop="17dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全天"
+                android:textSize="@dimen/content_size"
+                android:textColor="@color/first_title_color"
+                android:layout_marginBottom="10dp"
+                android:drawableLeft="@drawable/introduce_sight_open_left"
+                android:drawablePadding="10dp"
+                android:id="@+id/introduce_sight_open"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="七小时"
+                android:textSize="@dimen/content_size"
+                android:textColor="@color/first_title_color"
+                android:layout_marginBottom="10dp"
+                android:drawableLeft="@drawable/introduce_sight_play_time_left"
+                android:drawablePadding="10dp"
+                android:id="@+id/introduce_sight_play_time"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="否"
+                android:textSize="@dimen/content_size"
+                android:textColor="@color/first_title_color"
+                android:layout_marginBottom="10dp"
+                android:drawableLeft="@drawable/introduce_sight_price_left"
+                android:drawablePadding="10dp"
+                android:id="@+id/introduce_sight_price"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/introduce_sight_description_address_title"
+                android:layout_marginTop="17dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textSize="@dimen/content_size"
+                android:textColor="@color/first_title_color"
+                android:text="福建省厦门市思明区鼓浪屿区"
+                android:drawableLeft="@drawable/introduce_sight_address_left"
+                android:drawablePadding="10dp"
+                android:id="@+id/introduce_sight_address"/>
+
+            <com.zhizulx.tt.utils.MapContainer
+                android:id="@+id/map_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.amap.api.maps2d.MapView
+                    android:id="@+id/introduce_sight_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp" />
+            </com.zhizulx.tt.utils.MapContainer>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

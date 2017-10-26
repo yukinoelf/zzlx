@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="homepage_button">#333333</color>
+    <color name="travel_menu_bk">#ffffff</color>
+    <color name="travel_menu_text">#000000</color>
+    <color name="travel_alert_dialog_title">#5b6068</color>
+    <color name="travel_alert_dialog_content_not_choose">#5b6068</color>
+    <color name="travel_alert_dialog_content_choose">#ffffff</color>
+    <color name="dialog_semitransparent">#7f000000</color>
+    <color name="dialog_black">#df000000</color>
+    <color name="alertdialog_background">#f1f1f1</color>
+
+    <color name="title">#333333</color>
+    <color name="base_bk">#f8f8f8</color>
+    <color name="base_title">#ffffff</color>
+    <color name="first_title_color">#666666</color>
+    <color name="hint_color">#999999</color>
+    <color name="next_step">#ffffff</color>
+    <color name="mian_title">#ffffff</color>
+    <color name="clicked">#ffffff</color>
+    <color name="not_clicked">#666666</color>
+    <color name="switch_on">#ffffff</color>
+    <color name="switch_off">#5e93bd</color>
+    <color name="select_date">#24c4cb</color>
+    <color name="divder">#dddddd</color>
+    <color name="city_selected">#eeeeee</color>
+    <color name="translucent">#7f000000</color>
+    <color name="warning">#ff0011</color>
+    <color name="price">#ff7700</color>
+    <color name="traffic_head">#333333</color>
+    <color name="plane_station">#466cdb</color>
+    <color name="detail_disp_traffic_type">#fe9600</color>
+
+    <color name="color_ccc">#CCC</color>
+    <color name="white">#ffffff</color>
+    <color name="font_info">#999</color>
+    <color name="font_text">#666</color>
+    <color name="error_color">#FF4081</color>
+    <color name="red">#FF5C26</color>
+    <color name="city_alpha">#666666</color>
+    <color name="sight_play_time">#ff4c4c</color>
+    <color name="xiecheng_title">#07a0dc</color>
+    <color name="detail_disp_bk">#2f3245</color>
+
+    <color name="act_background">#efefef</color>
+    <color name="phone_bg">#f6f6f6</color>
+    <color name="black"> #000000</color>
+    <color name="blue">#4c90f9</color>
+
+    <color name="edge">#c9c9c9</color>
+
+    <color name="feedback">#cfcfcf</color>
+    <color name="select_route_title_color">#282828</color>
+    <color name="select_route_title_hint_color">#cfcfcf</color>
+    <color name="select_route_user_hint">#464646</color>
+    <color name="detail_disp_day">#787878</color>
+    <color name="detail_disp_day_bk">#f4f4f4</color>
+    <color name="show_sight_in_map">#e60012</color>
+    <color name="select_design_way">#ffffff</color>
+    <color name="select_design_custom">#f7f5f5</color>
+    <color name="default_top_bk">#34c5cb</color>
+    <color name="not_select_color">#e1e1e1</color>
+    <color name="change_name_under">#33c3cc</color>
+    <color name="change_name">#1f1f1f</color>
+    <color name="change_name_remain">#a2a2a2</color>
+</resources>

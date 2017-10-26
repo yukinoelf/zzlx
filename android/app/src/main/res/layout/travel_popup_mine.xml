@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_value_color"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mine_info">
+
+        <ImageView
+            android:layout_width="@dimen/left_menu_avatar"
+            android:layout_height="@dimen/left_menu_avatar"
+            android:background="@drawable/default_avatar"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/left_menu_left"
+            android:layout_marginTop="@dimen/left_menu_avatar_top"
+            android:id="@+id/mine_avatar" />
+
+        <TextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/left_menu_avatar_name_top"
+            android:layout_marginLeft="@dimen/left_menu_avatar_name_left"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/base_title"
+            android:layout_alignTop="@+id/mine_avatar"
+            android:layout_toEndOf="@+id/mine_avatar"
+            android:id="@+id/mine_name" />
+
+        <TextView
+            android:text="保密"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/left_menu_name_sex_top"
+            android:textSize="@dimen/content_size"
+            android:textColor="@color/base_title"
+            android:layout_below="@+id/mine_name"
+            android:layout_alignStart="@+id/mine_name"
+            android:id="@+id/mine_sex" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/left_menu_arrow_top"
+            android:layout_marginRight="@dimen/left_menu_arrow_right"
+            android:background="@drawable/mine_arrow"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/left_menu_divider_top"
+        android:layout_marginBottom="@dimen/left_menu_divider_bottom"
+        android:background="@drawable/mine_divider"/>
+
+    <TextView
+        android:text="@string/mine_collection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/left_menu_icon_icon"
+        android:layout_marginStart="@dimen/left_menu_left"
+        android:drawablePadding="@dimen/left_menu_icon_text"
+        android:drawableLeft="@drawable/mine_order"
+        android:textSize="@dimen/title_hint_size"
+        android:textColor="@color/base_title"
+        android:id="@+id/mine_collection" />
+
+    <TextView
+        android:text="@string/mine_about_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/left_menu_icon_icon"
+        android:layout_marginStart="@dimen/left_menu_left"
+        android:drawablePadding="@dimen/left_menu_icon_text"
+        android:drawableLeft="@drawable/mine_about_us"
+        android:textSize="@dimen/title_hint_size"
+        android:textColor="@color/base_title"
+        android:id="@+id/mine_about_us" />
+
+    <TextView
+        android:text="@string/mine_clear_cache"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/left_menu_icon_icon"
+        android:layout_marginStart="@dimen/left_menu_left"
+        android:drawablePadding="@dimen/left_menu_icon_text"
+        android:drawableLeft="@drawable/mine_clear_cache"
+        android:textSize="@dimen/title_hint_size"
+        android:textColor="@color/base_title"
+        android:id="@+id/mine_clear_cache" />
+
+    <TextView
+        android:text="@string/feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/left_menu_left"
+        android:drawablePadding="@dimen/left_menu_icon_text"
+        android:drawableLeft="@drawable/mine_feedback"
+        android:textSize="@dimen/title_hint_size"
+        android:textColor="@color/base_title"
+        android:id="@+id/mine_feedback" />
+</LinearLayout>

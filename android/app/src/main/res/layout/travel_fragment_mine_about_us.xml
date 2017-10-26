@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_bk"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/about_us" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/base_left_right_pad"
+        android:paddingEnd="@dimen/base_left_right_pad"
+        android:background="@drawable/aboutus_wechat_bk">
+
+        <TextView
+            android:text="微信公众号"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/first_title_color"
+            android:textSize="@dimen/title_size"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:text="智足旅行"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/title"
+            android:textSize="@dimen/title_hint_size"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/base_left_right_pad"
+        android:paddingEnd="@dimen/base_left_right_pad"
+        android:background="@drawable/aboutus_website_bk">
+
+        <TextView
+            android:text="智族旅行网址"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/first_title_color"
+            android:textSize="@dimen/title_size"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="www.zhizulx.com"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/title"
+            android:textSize="@dimen/title_hint_size"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhizulx.tt.ui.widget.swiprecycleview.SwipeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp">
+
+    <LinearLayout
+        android:layout_width="78dp"
+        android:layout_height="84dp">
+
+<!--        <ImageView
+            android:layout_width="78dp"
+            android:layout_height="84dp"
+            android:background="@drawable/collection_top"
+            android:id = "@+id/collection_top"/>-->
+
+        <ImageView
+            android:layout_width="78dp"
+            android:layout_height="84dp"
+            android:background = "@drawable/collection_del"
+            android:id = "@+id/collection_del"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="85dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id = "@+id/collection_item"
+            android:background="@drawable/collection_item_bk"/>
+
+        <ImageView
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/collection_avatar_bk"
+            android:id="@+id/collection_avatar"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textSize="15sp"
+            android:textColor="@color/traffic_head"
+            android:layout_toEndOf="@id/collection_avatar"
+            android:layout_alignTop="@+id/collection_avatar"
+            android:id="@+id/collection_time"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:textSize="13sp"
+            android:textColor="@color/not_clicked"
+            android:layout_toEndOf="@id/collection_avatar"
+            android:layout_alignBottom="@+id/collection_avatar"
+            android:id="@+id/collection_destination"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/traffic_head"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="22dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:drawableRight="@drawable/bn_click_arrow"
+            android:id="@+id/collection_route_type"/>
+    </RelativeLayout>
+</com.zhizulx.tt.ui.widget.swiprecycleview.SwipeLayout>

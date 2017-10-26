@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text=""
+        android:layout_width="42dp"
+        android:layout_height="@dimen/select_date_left_right"
+        android:gravity="center"
+        android:textSize="@dimen/item_traffic_detail_time"
+        android:textColor="@color/not_clicked"
+        android:id="@+id/date_day" />
+</LinearLayout>

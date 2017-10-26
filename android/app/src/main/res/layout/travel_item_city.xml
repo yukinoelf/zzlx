@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/select_place_city_pic_top_bottom"
+        android:paddingBottom="@dimen/select_place_city_pic_top_bottom"
+        android:id="@+id/ly_city">
+
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:layout_marginLeft="@dimen/select_place_city_pic_left"
+            android:layout_marginRight="@dimen/select_place_city_pic_right"
+            android:id="@+id/city_image"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/title_size"
+            android:id="@+id/city_name"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/city_image" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/select_place_city_pic_left"
+            android:background="@drawable/select_city_delete"
+            android:id="@+id/city_select"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+
+
+    </RelativeLayout>
+</LinearLayout>

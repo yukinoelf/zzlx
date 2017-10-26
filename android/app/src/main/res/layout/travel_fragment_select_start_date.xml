@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_bk"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/calendar_week_bk"
+        android:id="@+id/imageView" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/base_title"
+                android:paddingTop="@dimen/select_date_between"
+                android:paddingBottom="@dimen/select_date_top"
+                android:paddingLeft="@dimen/select_date_left_right"
+                android:paddingRight="@dimen/select_date_left_right"
+                android:textSize="@dimen/mian_title_size"
+                android:textColor="@color/not_clicked"
+                android:gravity="center"
+                android:id="@+id/calendar_month1" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_calendar_month1"
+                android:background="@color/base_title"
+                android:paddingLeft="@dimen/select_date_left_right"
+                android:paddingRight="@dimen/select_date_left_right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/base_title"
+                android:paddingTop="@dimen/select_date_between"
+                android:paddingBottom="@dimen/select_date_top"
+                android:paddingLeft="@dimen/select_date_left_right"
+                android:paddingRight="@dimen/select_date_left_right"
+                android:textSize="@dimen/mian_title_size"
+                android:textColor="@color/not_clicked"
+                android:gravity="center"
+                android:id="@+id/calendar_month2" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_calendar_month2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/select_date_left_right"
+                android:paddingRight="@dimen/select_date_left_right"
+                android:background="@color/base_title" />
+
+            <TextView
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/base_title"
+                android:paddingTop="@dimen/select_date_between"
+                android:paddingBottom="@dimen/select_date_top"
+                android:paddingLeft="@dimen/select_date_left_right"
+                android:paddingRight="@dimen/select_date_left_right"
+                android:textSize="@dimen/mian_title_size"
+                android:textColor="@color/not_clicked"
+                android:gravity="center"
+                android:id="@+id/calendar_month3" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_calendar_month3"
+                android:background="@color/base_title"
+                android:paddingLeft="@dimen/select_date_left_right"
+                android:paddingRight="@dimen/select_date_left_right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/base_title"
+                android:paddingTop="@dimen/select_date_between"
+                android:paddingBottom="@dimen/select_date_top"
+                android:paddingLeft="@dimen/select_date_left_right"
+                android:paddingRight="@dimen/select_date_left_right"
+                android:textSize="@dimen/mian_title_size"
+                android:textColor="@color/not_clicked"
+                android:gravity="center"
+                android:id="@+id/calendar_month4" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_calendar_month4"
+                android:background="@color/base_title"
+                android:paddingLeft="@dimen/select_date_left_right"
+                android:paddingRight="@dimen/select_date_left_right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/base_title"
+                android:paddingTop="@dimen/select_date_between"
+                android:paddingBottom="@dimen/select_date_top"
+                android:paddingLeft="@dimen/select_date_left_right"
+                android:paddingRight="@dimen/select_date_left_right"
+                android:textSize="@dimen/mian_title_size"
+                android:textColor="@color/not_clicked"
+                android:gravity="center"
+                android:id="@+id/calendar_month5" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_calendar_month5"
+                android:background="@color/base_title"
+                android:paddingLeft="@dimen/select_date_left_right"
+                android:paddingRight="@dimen/select_date_left_right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

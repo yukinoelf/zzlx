@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/item_traffic_detail_left_right_pad"
+    android:paddingRight="@dimen/item_traffic_detail_left_right_pad"
+    android:paddingTop="@dimen/item_traffic_detail_top_pad"
+    android:paddingBottom="@dimen/item_traffic_detail_bottom_pad"
+    android:background="@drawable/traffic_detail_bk"
+    android:id="@+id/rl_traffic_list" >
+
+    <TextView
+        android:text="12:03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="34dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:textColor="@color/mian_title"
+        android:textSize="@dimen/item_traffic_detail_time"
+        android:id="@+id/traffic_detail_start_time" />
+
+    <TextView
+        android:text="宝安T3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/item_traffic_detail_top_bottom"
+        android:layout_marginBottom="@dimen/item_traffic_detail_top_bottom"
+        android:textColor="@color/not_clicked"
+        android:textSize="@dimen/content_size"
+        android:layout_below="@+id/traffic_detail_start_time"
+        android:id="@+id/traffic_detail_start_station" />
+
+    <TextView
+        android:text="高崎T4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_traffic_detail_top_bottom"
+        android:layout_marginBottom="@dimen/item_traffic_detail_top_bottom"
+        android:textColor="@color/not_clicked"
+        android:textSize="@dimen/content_size"
+        android:layout_below="@+id/traffic_detail_end_time"
+        android:layout_alignRight="@+id/traffic_detail_end_time"
+        android:id="@+id/traffic_detail_end_station" />
+
+    <TextView
+        android:text="经济舱"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/traffic_detail_seat_type"
+        android:textSize="@dimen/content_size"
+        android:textColor="@color/plane_station"
+        android:layout_below="@+id/traffic_detail_end_station"
+        android:layout_alignRight="@+id/traffic_detail_end_station" />
+
+    <TextView
+        android:layout_width="61dp"
+        android:layout_height="wrap_content"
+        android:text="2时25分"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/content_s"
+        android:layout_alignLeft="@+id/traffic_arrow"
+        android:layout_below="@+id/traffic_arrow"/>
+
+    <TextView
+        android:text="14:36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/traffic_detail_end_time"
+        android:textColor="@color/mian_title"
+        android:textSize="@dimen/item_traffic_detail_time"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/traffic_arrow" />
+
+    <TextView
+        android:text="厦航MF8069|波音738（中）"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/traffic_list_no"
+        android:layout_marginBottom="@dimen/item_traffic_detail_top_bottom"
+        android:textSize="@dimen/content_size"
+        android:textColor="@color/plane_station"
+        android:layout_alignBaseline="@+id/traffic_detail_seat_type"
+        android:layout_alignBottom="@+id/traffic_detail_seat_type"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="￥730"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/content_size"
+        android:textColor="@color/price"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/traffic_list_no"
+        android:id="@+id/traffic_detail_price" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/traffic_detail_select_true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/traffic_detail_select" />
+
+    <ImageView
+        android:layout_width="61dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/traffic_arrow"
+        android:layout_marginRight="34dp"
+        android:id="@+id/traffic_arrow"
+        android:layout_above="@+id/traffic_detail_end_station"
+        android:layout_toEndOf="@+id/traffic_detail_start_time"
+        android:layout_marginEnd="29dp" />
+
+</RelativeLayout>

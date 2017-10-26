@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_bk"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mine_info_between"
+        android:background="@drawable/mine_info_avatar_bk">
+
+        <TextView
+            android:text="@string/avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_icon_between_pad"
+            android:layout_marginRight="@dimen/base_left_right_pad"
+            android:background="@drawable/bn_click_arrow"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/mine_info_avatar_arrow" />
+
+        <ImageView
+            android:layout_width="@dimen/left_menu_avatar"
+            android:layout_height="@dimen/left_menu_avatar"
+            android:background="@drawable/default_avatar"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/mine_info_avatar_arrow"
+            android:id="@+id/mine_info_avatar" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mine_info_between"
+        android:layout_marginBottom="@dimen/mine_info_between"
+        android:background="@drawable/mine_info_bk">
+
+        <TextView
+            android:text="@string/nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/text_height"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="旧时光"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_height"
+            android:gravity="center_vertical|end"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/hint_color"
+            android:layout_marginRight="@dimen/base_left_right_pad"
+            android:drawablePadding="@dimen/text_icon_between_pad"
+            android:drawableRight="@drawable/bn_click_arrow"
+            android:id="@+id/mine_info_name"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="@string/sex"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/text_height"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:layout_alignTop="@+id/mine_info_sex"
+            android:layout_alignBottom="@+id/mine_info_sex"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="你猜"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_height"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/hint_color"
+            android:gravity="center_vertical|end"
+            android:layout_marginRight="@dimen/base_left_right_pad"
+            android:drawablePadding="@dimen/text_icon_between_pad"
+            android:drawableRight="@drawable/bn_click_arrow"
+            android:layout_below="@+id/mine_info_name"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/mine_info_sex" />
+
+        <TextView
+            android:text="@string/marital"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/text_height"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:layout_alignTop="@+id/mine_info_marital"
+            android:layout_alignBottom="@+id/mine_info_marital"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="你猜"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_height"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/hint_color"
+            android:gravity="center_vertical|end"
+            android:layout_marginRight="@dimen/base_left_right_pad"
+            android:drawablePadding="@dimen/text_icon_between_pad"
+            android:drawableRight="@drawable/bn_click_arrow"
+            android:layout_below="@+id/mine_info_sex"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/mine_info_marital" />
+
+        <TextView
+            android:text="@string/homeland"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/text_height"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:layout_alignTop="@+id/mine_info_homeland"
+            android:layout_alignBottom="@+id/mine_info_homeland"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="你猜"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_height"
+            android:textSize="@dimen/title_hint_size"
+            android:textColor="@color/hint_color"
+            android:gravity="center_vertical|end"
+            android:layout_marginRight="@dimen/base_left_right_pad"
+            android:drawablePadding="@dimen/text_icon_between_pad"
+            android:drawableRight="@drawable/bn_click_arrow"
+            android:layout_below="@+id/mine_info_marital"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/mine_info_homeland" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/personalized_signature_bk"
+        android:id="@+id/rl_personalized_signature">
+
+        <TextView
+            android:text="@string/personalized_signature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/title_size"
+            android:textColor="@color/first_title_color"
+            android:layout_marginLeft="@dimen/text_left_pad"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bn_click_arrow"
+            android:layout_marginRight="@dimen/base_left_right_pad"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:id="@+id/logout"
+            android:background="@drawable/mine_info_logout"/>
+    </LinearLayout>
+</LinearLayout>

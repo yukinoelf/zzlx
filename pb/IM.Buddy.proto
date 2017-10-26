@@ -1,0 +1,537 @@
+package IM.Buddy;
+import "IM.BaseDefine.proto";
+option java_package = "com.zhizulx.tt.protobuf";
+//option java_outer_classname = "MOGUJIEIMMessage";
+option optimize_for = LITE_RUNTIME;
+
+//service id   0x0002
+
+message IMRecentContactSessionReq{
+    //cmd id:        0x0201
+    required uint32 user_id = 1;
+    required uint32 latest_update_time = 2;
+    optional bytes attach_data = 20;
+}
+
+message IMRecentContactSessionRsp{
+    //cmd id:        0x0202
+    required uint32 user_id = 1;
+    repeated IM.BaseDefine.ContactSessionInfo contact_session_list = 2;
+    optional bytes attach_data = 20;
+}
+
+message IMUserStatNotify{
+    //cmd id:        0x0203
+    required IM.BaseDefine.UserStat user_stat = 1;
+}
+
+message IMUsersInfoReq{
+    //cmd id:        0x0204
+    required uint32 user_id = 1;
+    repeated uint32 user_id_list = 2;
+    optional bytes attach_data = 20;
+}
+
+message IMUsersInfoRsp{
+    //cmd id:        0x0205
+    required uint32 user_id = 1;
+    repeated IM.BaseDefine.UserInfo user_info_list = 2;
+    optional bytes attach_data = 20;
+}
+
+message IMRemoveSessionReq{
+    //cmd id:        0x0206
+    required uint32 user_id = 1;
+    required IM.BaseDefine.SessionType session_type = 2;
+    required uint32 session_id = 3;
+    optional bytes attach_data = 20;
+}
+
+message IMRemoveSessionRsp{
+    //cmd id:        0x0207
+    required uint32 user_id = 1;
+    required uint32 result_code = 2;
+    required IM.BaseDefine.SessionType session_type = 3;
+    required uint32 session_id = 4;
+    optional bytes attach_data = 20;
+}
+
+message IMAllUserReq{
+    //cmd id:        0x02038
+    required uint32 user_id = 1;
+    required uint32 latest_update_time = 2;
+    optional bytes attach_data = 20;
+}
+
+message IMAllUserRsp{
+    //cmd id:        0x0209
+    required uint32 user_id = 1;
+    required uint32 latest_update_time = 2;
+    repeated IM.BaseDefine.UserInfo user_list = 3;        
+    optional bytes attach_data = 20;
+}
+
+message IMUsersStatReq{
+    //cmd id:        0x020a
+    required uint32 user_id = 1;
+    repeated uint32 user_id_list = 2;
+    optional bytes attach_data = 20;
+}
+
+message IMUsersStatRsp{
+    //cmd id:        0x020b
+    required uint32 user_id = 1;
+    repeated IM.BaseDefine.UserStat user_stat_list = 2;
+    optional bytes attach_data = 20;
+}
+
+message IMChangeAvatarReq{
+    //cmd id:        0x020c
+    required uint32 user_id = 1;
+    required string avatar_url = 2;
+    optional bytes attach_data = 20;
+}
+
+message IMChangeAvatarRsp{
+    //cmd id:        0x020d
+    required uint32 user_id = 1;
+    required uint32 result_code = 2;
+    optional bytes attach_data = 20;
+}
+
+//只给移动端通知
+message IMPCLoginStatusNotify{
+    //cmd id:        0x020e
+    required uint32 user_id = 1;
+    required IM.BaseDefine.UserStatType login_stat = 2;
+}
+
+ message IMRemoveSessionNotify{
+     //cmd id:        0x020f
+     required uint32 user_id = 1;
+    required IM.BaseDefine.SessionType session_type = 2;
+    required uint32 session_id = 3;
+ }
+
+message IMDepartmentReq{
+    //cmd id:        0x0210
+    required uint32 user_id = 1;
+    required uint32 latest_update_time = 2;
+    optional bytes attach_data = 20;
+}
+
+message IMDepartmentRsp{
+    //cmd id:        0x0211
+    required uint32 user_id = 1;
+    required uint32 latest_update_time = 2;
+    repeated IM.BaseDefine.DepartInfo dept_list = 3;
+    optional bytes attach_data = 20;
+}
+
+message IMAvatarChangedNotify {
+
+    //cmd id:        0x02012
+    required uint32 changed_user_id = 1;      // 谁修改了avatar
+    required string avatar_url = 2;           //
+}
+
+message IMChangeSignInfoReq{
+   //cmd id:        0x0213
+
+    required uint32 user_id = 1;
+    required string sign_info = 2;
+    optional bytes attach_data = 20;
+}
+
+message IMChangeSignInfoRsp{
+    //cmd id:        0x0214
+    required uint32 user_id = 1;
+    required uint32 result_code = 2;
+    optional string sign_info = 3;      // 此字段服务端用，客户端直接忽略
+    optional bytes attach_data = 20;
+}
+
+    // 个性签名修改通知（广播）
+message IMSignInfoChangedNotify {
+    //cmd id:        0x0215
+    required uint32 changed_user_id = 1;     // 谁修改了个性签名
+    required string sign_info = 2;
+}
+
+
+
+
+//////////////////////////////////////////////////////
+enum TransportToolType{
+    TRAIN       = 0x01;
+    AIRPLANE    = 0x02;
+    BUS         = 0x04;
+    WALK        = 0x08;
+    TAXI        = 0x10;
+}
+
+enum PositionType{
+    CENTRAL = 0x01;
+    SCENIC  = 0x02;
+    OTHER   = 0x03;
+}
+
+enum QualityType{
+    QUALITY_LOW  = 0x01;
+    QUALITY_MID  = 0x02;
+    QUALITY_HIGH = 0x03;
+}
+
+message TravelToolInfo{
+    required uint32 id                  = 1; // id
+    required uint32 transport_tool_type = 2; // TransportToolType
+    required string no                  = 3; // 车次编号
+    required string place_from_code     = 4; // 出发地编码
+    required string place_from          = 5; // 出发地名称
+    required string place_to_code       = 6; // 目的地编码
+    required string place_to            = 7; // 目的地名称
+    required string time_from           = 8; // 开始时间，08:32
+    required string time_to             = 9; // 结束时间，08:32
+    required string class               = 10; // 座位等级
+    required uint32 price               = 11; // 价格
+}
+
+message BasicInfo{
+    required string date_from           = 1;
+    required string date_to             = 2;
+    required string place_to_code       = 3; // 返回地编码
+    required uint32 person_num          = 4;
+    required string place_from_code     = 5; // 出发地编码
+    required string place_back_code     = 6; // 返回地编码
+}
+
+message TransportConfig{
+    required uint32 tool_type           = 1; // TransportToolType，按位与
+    required string time_from           = 2; // 起始时间
+    required string time_to             = 3; // 结束时间
+    required QualityType quality        = 4;
+    required uint32 transit             = 5; // 中转次数
+}
+
+message TravelDetail{
+    required TransportTool transport_tool   = 1;
+    required PlayDetail play_detail         = 2;
+}
+
+message TransportTool{
+    required TravelToolInfo from_info = 1;
+    required TravelToolInfo back_info = 2;
+}
+
+message DayScenic{
+    required string dayTimeFrom     = 1;
+    required string dayTimeTo       = 2;
+    required ScenicInfo scenic_info = 3;
+}
+
+message DayHotel{
+    required string dayTimeFrom     = 1;
+    required string dayTimeTo       = 2;
+    required HotelInfo hotel_info   = 3;
+}
+
+message PlayDetail{
+    required PlayConfig play_config = 1;
+    repeated DayHotel   day_hotel   = 2;
+    repeated DayScenic  day_scenic  = 3;
+}
+
+message PlayConfig{
+    required QualityType quality                    = 1;
+    required string time_from                       = 2;
+    required string time_to                         = 3;
+    required uint32 transport_tool_type             = 4;
+    required PositionType position                  = 5;
+}
+
+message ScenicInfo{
+    required uint32 id                      = 1;  // 景点id
+    required string city_code               = 2;  // "XMN"
+    required string sightName               = 3;  // 景点名
+    required uint32 sightScore              = 4;  // 评分
+    required string sightTag                = 5;  // 景点标签 "文化 休闲"
+    required string sightPic                = 6;  //景点图片的URL
+    required uint32 sightMustSee            = 7;  // 0为必去
+    required string sightUrl                = 8;  // 介绍网址
+    required string sightOpenTime           = 9;  //景点开放时间
+    required uint32 sightPlayTime           = 10; // 大概游玩时长（小时）
+    required uint32 sightPrice              = 11; // 价格
+    required string sightStartTime          = 12; // 开始时间，08:32
+    required string sightEndTime            = 13; // 结束时间，08:32
+    required string sightLongitude          = 14; //景点的经纬度
+    required string sightLatitude           = 15;
+    required string sightAddress            = 16; //景点地址
+    required string sightDiscription        = 17; //景点介绍
+    required string sightDiscriptionDetail  = 18; //景点详细介绍
+    required uint32 sightStatus             = 19;
+    required uint32 literature              = 20; //景点标签
+    required uint32 comfort                 = 21;
+    required uint32 exploration             = 22;
+    required uint32 excite                  = 23;
+    required uint32 encounter               = 24;
+}
+
+message HotelInfo{
+    required uint32 id                  = 1; // 酒店id
+    required string city_code           = 2; // "XMN"
+    required string hotelName           = 3; // 景点名
+    required uint32 hotelScore          = 4; // 评分
+    required string hotelTag            = 5; // 标签
+    required string hotelPic            = 6; // 酒店图片的URL
+    required string hotelUrl            = 7; // 介绍网址
+    required uint32 hotelPrice          = 8; // 价格
+    required string hotelLongitude      = 9; // 经纬度
+    required string hotelLatitude       = 10;
+}
+
+message MyTravel{
+    required uint32 db_idx                      = 1;
+    required uint32 cost                        = 2;
+    required BasicInfo basic_info               = 3;
+    required TransportConfig transport_config   = 4;
+    required TravelDetail travel_detail         = 5;
+}
+
+message CreateMyTravelReq{
+    //cmd id:        0x0251
+    required uint32 user_id                     = 1;
+    required MyTravel my_travel                 = 2;
+    optional bytes attach_data                  = 20;
+}
+
+message CreateMyTravelRsp{
+    //cmd id:        0x0252
+    required uint32 user_id     = 1;
+    required uint32 result_code = 2;
+    required uint32 db_idx      = 3;
+    optional bytes attach_data  = 20;
+}
+
+message DeleteMyTravelReq{
+    //cmd id:        0x0253
+    required uint32 user_id     = 1;
+    repeated uint32 db_idx      = 2;
+    optional bytes attach_data  = 20;
+}
+
+message DeleteMyTravelRsp{
+    //cmd id:        0x0254
+    required uint32 user_id     = 1;
+    required uint32 result_code = 2;
+    optional bytes attach_data  = 20;
+}
+
+message UpdateMyTravelReq{
+    //cmd id:        0x0255
+    required uint32 user_id     = 1;
+    required uint32 db_idx      = 2;
+    required MyTravel my_travel = 3;
+    optional bytes attach_data  = 20;
+}
+
+message UpdateMyTravelRsp{
+    //cmd id:        0x0256
+    required uint32 user_id     = 1;
+    required uint32 result_code = 2;
+    optional bytes attach_data  = 20;
+}
+
+message QueryMyTravelReq{
+    //cmd id:        0x0257
+    required uint32 user_id     = 1;
+    optional bytes attach_data  = 20;
+}
+
+message QueryMyTravelRsp{
+    //cmd id:        0x0258
+    required uint32 user_id     = 1;
+    required uint32 result_code = 2;
+    repeated MyTravel my_travel = 3;
+    optional bytes attach_data  = 20;
+}
+
+message GetTransportToolReq{
+    //cmd id:        0x0259
+    required uint32 user_id = 1;
+    required BasicInfo basic_info = 2;
+    required TransportConfig transport_config = 3;
+    optional bytes attach_data = 20;
+}
+
+message GetTransportToolRsp{
+    //cmd id:        0x025a
+    required uint32 user_id                     = 1;
+    required uint32 result_code                 = 2;
+    repeated TravelToolInfo travel_tool_info    = 3;
+    optional bytes attach_data                  = 20;
+}
+
+message GetScenicHotelReq{
+    //cmd id:        0x025b
+    required uint32 user_id         = 1;
+    required string city_code       = 2; // "XMN"
+    optional bytes attach_data      = 20;
+}
+
+message GetScenicHotelRsp{
+    //cmd id:        0x025c
+    required uint32 user_id         = 1;
+    required uint32 result_code     = 2;
+    repeated ScenicInfo scenic_info = 3;
+    repeated HotelInfo hotel_info   = 4;
+    optional bytes attach_data      = 20;
+}
+
+message DayRoute{
+    repeated uint32 scenics = 1;
+    repeated uint32 hotels = 2;
+}
+
+message Route {
+    required uint32 id = 1;
+    required uint32 day_count = 2;
+    required string city_code = 3;
+    repeated string tag = 4; // binghui
+    required TransportToolType start_transport_tool = 5;
+    required TransportToolType end_transport_tool = 6;
+    required string start_time = 7;
+    required string end_time = 8;
+    repeated DayRoute day_routes = 9;
+}
+
+message CollectionRoute {
+    required uint32 id = 1;
+    required string start_date = 2; //2017-04-23
+    required string end_date = 3;
+    required string start_traffic_no = 4;
+    required string end_traffic_no = 5;
+    required Route  route = 6;
+}
+
+message NewQueryRadomRouteReq{
+    //cmd id:        0x025c
+    required uint32 user_id = 1;
+    repeated string tags = 2;
+    required string sentence = 3;
+    optional bytes attach_data = 20;
+}
+
+message NewQueryRadomRouteRsp{
+    //cmd id:        0x025c
+    required uint32 user_id         = 1;
+    required uint32 result_code     = 2;
+    repeated Route routes            = 3;
+    optional bytes attach_data      = 20;
+}
+
+message NewUpdateRadomRouteReq{
+    //cmd id:        0x025c
+    required uint32 user_id = 1;
+    required uint32 day_count = 2;
+    required string city_code = 3; //
+    required TransportToolType start_transport_tool = 4;
+    required TransportToolType end_transport_tool = 5;
+    required string start_time = 6;
+    required string end_time = 7;
+    repeated uint32 scenic_ids = 8; //
+    required string tag = 9; //
+    optional bytes attach_data = 20;
+}
+
+message NewUpdateRadomRouteRsp{
+    //cmd id:        0x025c
+    required uint32 user_id         = 1;
+    required uint32 result_code     = 2;
+    required Route route            = 3;
+    optional bytes attach_data      = 20;
+}
+
+message NewCreateMyTravelReq{
+    //cmd id:        0x0251
+    required uint32 user_id = 1;
+    required uint32 day_count = 2;
+    required string city_code = 3;
+    repeated string tags = 4;
+    optional bytes attach_data = 20;
+}
+
+message NewCreateMyTravelRsp{
+    //cmd id:        0x025c
+    required uint32 user_id         = 1;
+    required uint32 result_code     = 2;
+    required Route route            = 3;
+    optional bytes attach_data      = 20;
+}
+
+message NewCreateCollectRouteReq{
+    //cmd id:        0x0263
+    required uint32 user_id        = 1;
+    required CollectionRoute collect = 2;
+    optional bytes attach_data     = 20;
+}
+
+message NewCreateCollectRouteRsp{
+    //cmd id:        0x0264
+    required uint32 user_id         = 1;
+    required uint32 result_code     = 2;
+    required uint32 collect_id      = 3;
+    optional bytes attach_data      = 20;
+}
+
+message NewDelCollectRouteReq{
+    //cmd id:        0x0265
+    required uint32 user_id    = 1;
+    repeated uint32 collect_id  = 2;
+    optional bytes attach_data = 20;
+}
+
+message NewDelCollectRouteRsp{
+    //cmd id:        0x0266
+    required uint32 user_id         = 1;
+    required uint32 result_code     = 2;
+    optional bytes attach_data      = 20;
+}
+
+message NewQueryCollectRouteReq{
+    //cmd id:        0x0267
+    required uint32 user_id = 1;
+    optional bytes attach_data = 20;
+}
+
+message NewQueryCollectRouteRsp{
+    //cmd id:        0x0268
+    required uint32 user_id         = 1;
+    required uint32 result_code     = 2;
+    repeated CollectionRoute collections  = 3;
+    optional bytes attach_data      = 20;
+}
+
+enum ModifyType{
+    NICK      = 0x01;
+    AVATAR    = 0x02;
+    SEX       = 0x03;
+    ENCOUNTER = 0x04;
+    HOMELAND  = 0x05;
+    SIGN      = 0x06;
+}
+
+message Info_Modify_Req {
+    //cmd id:		0x0224
+    required uint32 user_id         = 1;
+    required ModifyType modify_type = 2;
+    required string modify_context  = 3;
+    optional bytes attach_data      = 20;
+}
+
+message Info_Modify_Rsp {
+    //cmd id:		0x0225
+    required uint32 user_id                 = 1;
+    required BaseDefine.ResultType ret_code = 2;
+    optional bytes attach_data              = 20;
+}
+//////////////////////////////////////////////////////

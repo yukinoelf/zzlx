@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/detail_disp_bk"
+    android:focusable="true"
+    android:focusableInTouchMode="true" >
+
+    <View
+        android:layout_marginStart="12dp"
+        android:layout_width="4dp"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="45dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/travel_menu_bk" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/contact_default_bk"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="23dp"
+            android:id="@+id/detail_disp_price"
+            android:text="约3444元"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:drawableLeft="@drawable/detail_disp_price"
+            android:drawablePadding="5dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/detail_disp_top_divider"/>
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="23dp"
+            android:id="@+id/detail_disp_route_style"
+            android:text="文化路线"
+            android:textColor="@color/not_clicked"
+            android:textSize="@dimen/content_size"
+            android:drawableLeft="@drawable/detail_disp_route"
+            android:drawablePadding="5dp"/>
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/not_collected"
+            android:id="@+id/route_collection" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="45dp"
+        android:id="@+id/rv_detail_disp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" >
+
+    </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:text="@string/detail_disp_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/base_title"
+        android:textSize="@dimen/title_size"
+        android:clickable="true"
+        android:background="@drawable/detail_disp_menu"
+        android:layout_marginLeft="@dimen/select_sight_tag_between"
+        android:layout_marginBottom="@dimen/select_sight_tag_between"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/detail_disp_menu" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="@dimen/detail_disp_menu_width"
+        android:layout_height="@dimen/detail_disp_menu_height"
+        android:layout_alignLeft="@+id/detail_disp_menu"
+        android:background="@drawable/detail_disp_menu_content"
+        android:layout_marginBottom="@dimen/detail_disp_menu_bottom"
+        android:paddingBottom="@dimen/detail_disp_menu_bottom_triangle"
+        android:layout_above="@+id/detail_disp_menu"
+        android:id="@+id/ly_detail_disp_menu"
+        android:visibility="gone">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rv_detail_disp_menu"/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/go_home"
+        android:id="@+id/detail_disp_go_home"
+        android:layout_marginRight="31dp"
+        android:layout_marginBottom="342dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:clickable="true"
+        android:visibility="gone"
+        android:id="@+id/ly_time_select_wheel"
+        android:background="@color/translucent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/clicked">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/select_time_cancel"
+                android:id="@+id/select_time_cancel"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/select_time_confirm"
+                android:id="@+id/select_time_confirm"/>
+        </RelativeLayout>
+
+        <com.zhizulx.tt.utils.WheelPicker
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/time_select_wheel"
+            android:background="@color/clicked"/>
+    </LinearLayout>
+
+</RelativeLayout>
