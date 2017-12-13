@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/translucent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/login_bk"
+        android:orientation="vertical"
+        android:padding="@dimen/login_left_pad">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/phone_number_bk"
+            android:paddingLeft="@dimen/login_left_pad"
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/phone_number"
+                android:textSize="@dimen/title_hint_size"
+                android:textColor="@color/white"/>
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="@dimen/login_title_content"
+                android:background="@null"
+                android:hint="@string/prompt_phone_number"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/login_left_pad">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/identifying_code_bk"
+                android:paddingLeft="@dimen/login_left_pad"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/identifying_code"
+                    android:textSize="@dimen/title_hint_size"
+                    android:textColor="@color/white"/>
+
+                <EditText
+                    android:id="@+id/code"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="@dimen/login_title_content"
+                    android:background="@null"
+                    android:hint="@string/prompt_identifying_code"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColorHint="@color/white"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="115dp"
+                android:layout_height="44dp"
+                android:layout_marginLeft="@dimen/login_left_pad"
+                android:gravity="center"
+                android:background="@drawable/request_identifying_code"
+                android:text="@string/request_identifying_code"
+                android:textColor="@color/white"
+                android:id="@+id/request_identifying_code"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/confirm_button"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/confirm"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/login_vertical_pad"
+            android:background="@drawable/login_button"
+            android:textColor="@color/next_step"
+            android:textSize="@dimen/next_step" />
+    </LinearLayout>
+</RelativeLayout>

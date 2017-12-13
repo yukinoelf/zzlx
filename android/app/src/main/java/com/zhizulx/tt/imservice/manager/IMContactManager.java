@@ -426,6 +426,9 @@ public class IMContactManager extends IMManager {
             case IMBuddy.ModifyType.SIGN_VALUE:
                 loginMgr.setSignInfo(context);
                 break;
+            case IMBuddy.ModifyType.PHONE_VALUE:
+                mine.setPhone(context);
+                break;
         }
     }
 
@@ -459,6 +462,10 @@ public class IMContactManager extends IMManager {
         } else {
             triggerEvent(UserInfoEvent.INFO_MODIFY_FAIL);
         }
+    }
+
+    public void notifyAvatarChange() {
+        triggerEvent(UserInfoEvent.MY_AVATAR_OK);
     }
 
     /**------------------------部门相关的协议 end------------------------------*/

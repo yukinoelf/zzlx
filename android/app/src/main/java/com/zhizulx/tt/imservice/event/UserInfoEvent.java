@@ -12,6 +12,7 @@ public enum UserInfoEvent {
     USER_INFO_OK,
     USER_INFO_UPDATE,
     MY_AVATAR_OK,
+    MY_NAME_OK,
     AVATAR_UPLOAD_URL_OK,
     INFO_MODIFY_OK,
     INFO_MODIFY_FAIL

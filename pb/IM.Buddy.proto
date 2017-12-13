@@ -518,6 +518,7 @@ enum ModifyType{
     ENCOUNTER = 0x04;
     HOMELAND  = 0x05;
     SIGN      = 0x06;
+    PHONE     = 0x07;
 }
 
 message Info_Modify_Req {

@@ -42,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="vertical"
+                android:visibility="gone"
                 android:paddingLeft="@dimen/login_left_pad"
                 android:paddingRight="@dimen/login_left_pad">
 
@@ -161,28 +162,30 @@
                     android:visibility="gone"
                     />
             </LinearLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/login_third_top"
+                android:background="@drawable/third_login_bk"
                 android:paddingLeft="@dimen/login_third_left_right"
                 android:paddingRight="@dimen/login_third_left_right"
-                android:visibility="gone"
-                android:background="@drawable/third_login_bk">
+                android:paddingTop="@dimen/login_third_top"
+                android:visibility="visible">
 
                 <ImageView
+                    android:id="@+id/wechat_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:id="@+id/wechat_login"
-                    android:background="@drawable/wechat"/>
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/wechat" />
 
                 <ImageView
+                    android:id="@+id/qq_login"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:id="@+id/qq_login"
-                    android:background="@drawable/qq"/>
+                    android:background="@drawable/qq" />
 
             </RelativeLayout>
         </LinearLayout>

@@ -265,7 +265,13 @@ public class HomePageActivity extends FragmentActivity {
 
     public void onEventMainThread(UserInfoEvent event){
         switch (event){
-            case USER_INFO_OK:
+            case MY_AVATAR_OK:
+                userEntity = imService.getLoginManager().getLoginInfo();
+                ImageUtil.GlideRoundAvatar(HomePageActivity.this, userEntity.getAvatar(), mineAvatar);
+                break;
+            case MY_NAME_OK:
+                userEntity = imService.getLoginManager().getLoginInfo();
+                name.setText(userEntity.getMainName());
                 break;
         }
     }

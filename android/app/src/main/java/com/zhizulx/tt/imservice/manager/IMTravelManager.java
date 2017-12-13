@@ -302,7 +302,7 @@ public class IMTravelManager extends IMManager {
     public void onRspUpdateRandomRoute(IMBuddy.NewUpdateRadomRouteRsp newUpdateRadomRouteRsp) throws ParseException {
         Log.e("yuki", "onRspUpdateRandomRoute");
         if (newUpdateRadomRouteRsp.getResultCode() != 0) {
-            logger.e("onRepTravelList fail %d", newUpdateRadomRouteRsp.getResultCode());
+            logger.e("onRspUpdateRandomRoute fail %d", newUpdateRadomRouteRsp.getResultCode());
             triggerEvent(new TravelEvent(TravelEvent.Event.UPDATE_RANDOM_ROUTE_FAIL));
         } else {
             List<String> tags = new ArrayList<>();
@@ -490,7 +490,7 @@ public class IMTravelManager extends IMManager {
     public void onRspDelCollectRoute(IMBuddy.NewDelCollectRouteRsp newDelCollectRouteRsp) throws ParseException {
         Log.e("yuki", "onRspDelCollectRoute");
         if (newDelCollectRouteRsp.getResultCode() != 0) {
-            logger.e("onRepTravelList fail %d", newDelCollectRouteRsp.getResultCode());
+            logger.e("onRspDelCollectRoute fail %d", newDelCollectRouteRsp.getResultCode());
             triggerEvent(new TravelEvent(TravelEvent.Event.DELETE_COLLECT_ROUTE_FAIL));
         } else {
             triggerEvent(new TravelEvent(TravelEvent.Event.DELETE_COLLECT_ROUTE_OK));

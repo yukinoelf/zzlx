@@ -94,6 +94,7 @@
     <string name="feedback_content">请用简洁的文字说明问题或建议</string>
     <string name="feedback_picture_hint">图片（可选择，提供问题截图，最多3张）</string>
     <string name="feedback_confirm">确认提交</string>
+    <string name="confirm">确认</string>
     <string name="select_route_user_hint">小智：请小主赐教！</string>
     <string name="select_route_user_title">小智占卜</string>
     <string name="select_route_user_hint_example">例如：毕业、未知、流浪、放松、陌生...</string>

@@ -635,6 +635,11 @@ IM::BaseDefine::ResultType CUserModel::modifyInfo(uint32_t user_id, uint32_t mod
 			{
 				str_sql = "UPDATE IMUser SET sign_info = '" + modify_context + "' WHERE id = " + int2string(user_id);
 				break;
+            }
+            case IM::Buddy::PHONE :
+			{
+				str_sql = "UPDATE IMUser SET phone = '" + modify_context + "' WHERE id = " + int2string(user_id);
+				break;
 			}
 			default:
 			{

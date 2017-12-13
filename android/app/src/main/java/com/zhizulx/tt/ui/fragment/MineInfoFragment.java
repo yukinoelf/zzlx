@@ -306,6 +306,7 @@ public class MineInfoFragment extends TTBaseFragment{
                 if (!val.equals("not ok")) {
                     if (logid != 0) {
                         imContactManager.reqInfoModify(logid, IMBuddy.ModifyType.AVATAR, UrlConstant.AVATAR_DOWNLOAD_ADDRESS+val);
+						imContactManager.notifyAvatarChange();
                     }
                 }
 			}

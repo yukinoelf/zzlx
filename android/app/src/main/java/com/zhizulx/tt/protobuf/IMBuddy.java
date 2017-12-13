@@ -254,6 +254,10 @@ public final class IMBuddy {
      * <code>SIGN = 6;</code>
      */
     SIGN(5, 6),
+    /**
+     * <code>PHONE = 7;</code>
+     */
+    PHONE(6, 7),
     ;
 
     /**
@@ -280,6 +284,10 @@ public final class IMBuddy {
      * <code>SIGN = 6;</code>
      */
     public static final int SIGN_VALUE = 6;
+    /**
+     * <code>PHONE = 7;</code>
+     */
+    public static final int PHONE_VALUE = 7;
 
 
     public final int getNumber() { return value; }
@@ -292,6 +300,7 @@ public final class IMBuddy {
         case 4: return ENCOUNTER;
         case 5: return HOMELAND;
         case 6: return SIGN;
+        case 7: return PHONE;
         default: return null;
       }
     }

@@ -1,6 +1,7 @@
 package com.zhizulx.tt.ui.activity;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,15 +28,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.tencent.tauth.Tencent;
-import com.zhizulx.tt.DB.Constants;
+import com.umeng.socialize.UMAuthListener;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.shareboard.SnsPlatform;
+import com.umeng.socialize.utils.SocializeUtils;
 import com.zhizulx.tt.DB.sp.LoginSp;
 import com.zhizulx.tt.DB.sp.SystemConfigSp;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.config.IntentConstant;
 import com.zhizulx.tt.config.UrlConstant;
+import com.zhizulx.tt.imservice.manager.IMContactManager;
+import com.zhizulx.tt.protobuf.IMBuddy;
 import com.zhizulx.tt.utils.IMUIHelper;
 import com.zhizulx.tt.imservice.event.LoginEvent;
 import com.zhizulx.tt.imservice.event.SocketEvent;
@@ -44,25 +48,16 @@ import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.ui.base.TTBaseActivity;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.utils.Logger;
-import com.zhizulx.tt.utils.TimeUtils;
-import com.zyp.thirdloginlib.ShareBlock;
-import com.zyp.thirdloginlib.data.resultModel.AccountResult;
-import com.zyp.thirdloginlib.data.resultModel.WeChartUserInfoResult;
-import com.zyp.thirdloginlib.impl.PlatformActionListener;
-import com.zyp.thirdloginlib.qq.QQLoginManager;
-import com.zyp.thirdloginlib.qq.model.QQUser;
-import com.zyp.thirdloginlib.wechart.WechatLoginManager;
 
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 import de.greenrobot.event.EventBus;
+
+import static com.zhizulx.tt.config.UrlConstant.BASE_ADDRESS;
 
 /**
  * @YM 1. 链接成功之后，直接判断是否loginSp是否可以直接登陆
@@ -75,7 +70,6 @@ import de.greenrobot.event.EventBus;
  * 3. 保存登陆状态
  */
 public class LoginActivity extends TTBaseActivity {
-
     private Logger logger = Logger.getLogger(LoginActivity.class);
     private Handler uiHandler = new Handler();
     private EditText mNameView;
@@ -94,10 +88,12 @@ public class LoginActivity extends TTBaseActivity {
     private boolean autoLogin = true;
     private boolean loginSuccess = false;
 
-    private String TAG = "qqLogin";
-    private QQLoginManager qqLoginManager;
     private ImageView qqLogin;
     private ImageView wechatLogin;
+    private ProgressDialog dialog;
+    private String name;
+    private String avatar;
+    private String wechatUnionID;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector() {
         @Override
@@ -359,6 +355,7 @@ public class LoginActivity extends TTBaseActivity {
                 wechatLogin();
             }
         });
+        dialog = new ProgressDialog(LoginActivity.this);
         getStatusBarHeight();
     }
 
@@ -475,6 +472,7 @@ public class LoginActivity extends TTBaseActivity {
         EventBus.getDefault().unregister(this);
         splashPage = null;
         loginPage = null;
+        UMShareAPI.get(this).release();
     }
 
 
@@ -542,10 +540,13 @@ public class LoginActivity extends TTBaseActivity {
             passWord = user.get(name);
             imService.getLoginManager().login(name, passWord);
         }*/
-        if (mNameView.getText().toString().equals("521314")) {
+/*        if (mNameView.getText().toString().equals("521314")) {
             imService.getLoginManager().login("18588227343", "18588227343");
         } else {
             imService.getLoginManager().login(mNameView.getText().toString(), mNameView.getText().toString());
+        }*/
+        if (wechatUnionID != null) {
+            imService.getLoginManager().login(wechatUnionID, wechatUnionID);
         }
     }
 
@@ -615,6 +616,7 @@ public class LoginActivity extends TTBaseActivity {
     private void onLoginSuccess() {
         logger.i("login#onLoginSuccess");
         loginSuccess = true;
+        updateLoginInfo();
         Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
         startActivity(intent);
         LoginActivity.this.finish();
@@ -641,50 +643,15 @@ public class LoginActivity extends TTBaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == com.tencent.connect.common.Constants.REQUEST_LOGIN) {
-            Tencent.onActivityResultData(requestCode, resultCode, data, qqLoginManager.getIuListener());
-        }
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
     }
 
     private void qqLogin() {
-        ShareBlock.getInstance().initQQ(Constants.QQ_APP_ID);
-        qqLoginManager = new QQLoginManager(this);
-        qqLoginManager.login(new PlatformActionListener() {
-            @Override
-            public void onComplete(AccountResult accountResult) {
-                Log.d(TAG, "onComplete: qq login resutl ");
-                QQUser qqUser = (QQUser) accountResult;
-                //tvContent.setText("昵称 ：" + qqUser.getNickname());
-            }
-
-            @Override
-            public void onError() {
-                Log.d(TAG, "onError: qq login resutl ");
-            }
-
-            @Override
-            public void onCancel() {
-                Log.d(TAG, "onCancel: qq login resutl ");
-            }
-        });
+        //ThirdLoginProcess(SHARE_MEDIA.QQ);
     }
 
     private void wechatLogin() {
-        ShareBlock.getInstance().initWechat(Constants.WECHAT_APP_ID,Constants.WECHAT_SECRET);
-        WechatLoginManager wechatLoginManager = new WechatLoginManager(this);
-        wechatLoginManager.login(new PlatformActionListener() {
-            @Override
-            public void onComplete(AccountResult accountResult) {
-                WeChartUserInfoResult weChartUserInfoResult = (WeChartUserInfoResult) accountResult;
-
-            }
-
-            @Override
-            public void onError() {}
-
-            @Override
-            public void onCancel() {}
-        });
+        ThirdLoginProcess(SHARE_MEDIA.WEIXIN.toSnsPlatform().mPlatform);
     }
 
     private void getStatusBarHeight(){
@@ -703,5 +670,54 @@ public class LoginActivity extends TTBaseActivity {
         }
         SystemConfigSp.instance().setIntConfig(SystemConfigSp.SysCfgDimension.TOP_BAR_HEIGHT, statusBarHeight2);
         Log.e("WangJ", "状态栏-方法2:" + statusBarHeight2);
+    }
+
+    private void ThirdLoginProcess(SHARE_MEDIA share_media) {
+        UMShareAPI.get(LoginActivity.this).getPlatformInfo(LoginActivity.this, share_media, authListener);
+    }
+
+    UMAuthListener authListener = new UMAuthListener() {
+        @Override
+        public void onStart(SHARE_MEDIA platform) {
+
+        }
+
+        @Override
+        public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
+            String temp = "";
+            for (String key : data.keySet()) {
+                temp = temp + key + " : " + data.get(key) + "\n";
+            }
+            Log.e("yuki", temp);
+            wechatUnionID = data.get("uid");
+            name = data.get("name");
+            avatar = data.get("iconurl");
+            attemptLogin();
+        }
+
+        @Override
+        public void onError(SHARE_MEDIA platform, int action, Throwable t) {
+
+        }
+
+        @Override
+        public void onCancel(SHARE_MEDIA platform, int action) {
+
+        }
+    };
+
+    private void updateLoginInfo() {
+        if (imService == null || name == null || avatar == null) {
+            return;
+        }
+        IMLoginManager imLoginManager = imService.getLoginManager();
+        IMContactManager imContactManager = imService.getContactManager();
+        int id = imLoginManager.getLoginId();
+        imLoginManager.getLoginInfo().setMainName(name);
+        imContactManager.reqInfoModify(id, IMBuddy.ModifyType.NICK, name);
+        if (!imLoginManager.getLoginInfo().getAvatar().contains(BASE_ADDRESS)) {
+            imService.getLoginManager().getLoginInfo().setAvatar(avatar);
+            imContactManager.reqInfoModify(id, IMBuddy.ModifyType.AVATAR, avatar);
+        }
     }
 }

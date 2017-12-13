@@ -16,6 +16,7 @@ import com.zhizulx.tt.DB.entity.SightEntity;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.utils.ImageUtil;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -56,7 +57,11 @@ public class SightAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         SightEntity sightEntity = mList.get(i);
         SightViewHolder holder = (SightViewHolder) viewHolder;
-        ImageUtil.GlideAvatar(ctx, sightEntity.getPic(), holder.pic);
+        String pic = sightEntity.getPic();
+        List<String> picUrlList = Arrays.asList(pic.split(","));
+        if (picUrlList.size() > 0) {
+            ImageUtil.GlideAvatar(ctx, picUrlList.get(0), holder.pic);
+        }
         holder.name.setText(sightEntity.getName());
         holder.star.setRating((float)(sightEntity.getStar()));
         holder.tag.setText(sightEntity.getTag());

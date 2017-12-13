@@ -276,6 +276,8 @@ public class IMLoginManager extends IMManager {
                 loginId = userInfo.getUserId();
                 loginInfo = ProtoBuf2JavaBean.getUserEntity(userInfo);
                 signInfo = userInfo.getSignInfo();
+                triggerEvent(UserInfoEvent.MY_NAME_OK);
+                triggerEvent(UserInfoEvent.MY_AVATAR_OK);
                 onLoginOk();
             }break;
 

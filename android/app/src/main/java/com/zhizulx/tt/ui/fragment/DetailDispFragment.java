@@ -3,18 +3,27 @@ package com.zhizulx.tt.ui.fragment;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,11 +37,15 @@ import com.zhizulx.tt.DB.entity.SightEntity;
 import com.zhizulx.tt.R;
 import com.zhizulx.tt.imservice.event.LocationEvent;
 import com.zhizulx.tt.imservice.event.TravelEvent;
+import com.zhizulx.tt.imservice.manager.IMContactManager;
+import com.zhizulx.tt.imservice.manager.IMLoginManager;
 import com.zhizulx.tt.imservice.manager.IMTravelManager;
 import com.zhizulx.tt.imservice.service.IMService;
 import com.zhizulx.tt.imservice.support.IMServiceConnector;
 import com.zhizulx.tt.protobuf.IMBuddy;
+import com.zhizulx.tt.protobuf.IMLogin;
 import com.zhizulx.tt.ui.activity.CollectActivity;
+import com.zhizulx.tt.ui.activity.LoginActivity;
 import com.zhizulx.tt.ui.activity.SelectHotelActivity;
 import com.zhizulx.tt.ui.activity.SelectSightActivity;
 import com.zhizulx.tt.ui.adapter.DetailDispAdapter;
@@ -43,6 +56,8 @@ import com.zhizulx.tt.utils.MonitorClickListener;
 import com.zhizulx.tt.utils.TravelUIHelper;
 import com.zhizulx.tt.utils.WheelPicker;
 
+import org.json.JSONObject;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -51,6 +66,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
 import de.greenrobot.event.EventBus;
 
 /**
@@ -60,6 +77,8 @@ public class DetailDispFragment extends TTBaseFragment{
 	private View curView = null;
     private MonitorActivityBehavior monitorActivityBehavior;
     private IMTravelManager travelManager;
+    private IMLoginManager imLoginManager;
+    private IMContactManager imContactManager;
     private RecyclerView rvDetailDisp;
     private DetailDispAdapter detailDispAdapter;
     private List<DetailDispEntity> detailDispEntityList = new ArrayList<>();
@@ -101,6 +120,15 @@ public class DetailDispFragment extends TTBaseFragment{
     private static final int UPDATE_OPT_TIME_CHANGE = 1;
     private static final int UPDATE_OPT_SIGHT_CHANGE = 2;
     private List<Integer> changeSightIDList = new ArrayList<>();
+    private Boolean hasPhoneNumber = false;
+    private PopupWindow popupWindow;
+    private EditText phone;
+    private EditText code;
+    private Button requestIdentifyingCode;
+    private Button confirmButton;
+    private int i = 60;//倒计时
+    private String countryCode="86";
+    private InputMethodManager intputManager;
 
     private IMServiceConnector imServiceConnector = new IMServiceConnector(){
         @Override
@@ -109,6 +137,11 @@ public class DetailDispFragment extends TTBaseFragment{
             IMService imService = imServiceConnector.getIMService();
             if (imService != null) {
                 travelManager = imService.getTravelManager();
+                imLoginManager = imService.getLoginManager();
+                imContactManager = imService.getContactManager();
+                if (!imLoginManager.getLoginInfo().getPhone().isEmpty()) {
+                    hasPhoneNumber = true;
+                }
                 startCity = travelManager.getConfigEntity().getStartCity();
                 endCity = travelManager.getConfigEntity().getEndCity();
                 travelManager.reqSightHotel(travelManager.getRouteEntity().getCityCode());
@@ -127,6 +160,7 @@ public class DetailDispFragment extends TTBaseFragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+        intputManager = (InputMethodManager) getActivity().getSystemService(getActivity().INPUT_METHOD_SERVICE);
         if(!EventBus.getDefault().isRegistered(DetailDispFragment.this)){
             EventBus.getDefault().register(DetailDispFragment.this);
         }
@@ -136,7 +170,10 @@ public class DetailDispFragment extends TTBaseFragment{
 			return curView;
 		}
 		curView = inflater.inflate(R.layout.travel_fragment_detail_disp, topContentView);
+        // 启动短信验证sdk
+        SMSSDK.initSDK(getActivity(), "1baa910545d5b", "0928f3be205e6caf9af24f3486b52d64");
 		initRes();
+        initSMSSDK();
         initBtn();
         initDetailDisp();
 		return curView;
@@ -151,6 +188,7 @@ public class DetailDispFragment extends TTBaseFragment{
         super.onDestroy();
         imServiceConnector.disconnect(getActivity());
         EventBus.getDefault().unregister(DetailDispFragment.this);
+        SMSSDK.unregisterAllEventHandler();
     }
 
     @Override
@@ -258,8 +296,12 @@ public class DetailDispFragment extends TTBaseFragment{
         routeCollection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent collect = new Intent(getActivity(), CollectActivity.class);
-                startActivityForResult(collect, Activity.RESULT_FIRST_USER);
+                if (hasPhoneNumber == true) {
+                    Intent collect = new Intent(getActivity(), CollectActivity.class);
+                    startActivityForResult(collect, Activity.RESULT_FIRST_USER);
+                } else {
+                    PhoneConfirm();
+                }
             }
         });
         routeCost = (TextView)curView.findViewById(R.id.detail_disp_price);
@@ -417,6 +459,26 @@ public class DetailDispFragment extends TTBaseFragment{
         };
         detailDispMenuAdapter.setOnRecyclerViewListener(dayListener);
         rvMenu.setAdapter(detailDispMenuAdapter);
+    }
+
+    private void initSMSSDK() {
+        // 启动短信验证sdk
+        SMSSDK.initSDK(getActivity(), "1baa910545d5b", "0928f3be205e6caf9af24f3486b52d64");
+
+        //initSDK方法是短信SDK的入口，需要传递您从MOB应用管理后台中注册的SMSSDK的应用AppKey和AppSecrete，如果填写错误，后续的操作都将不能进行
+        EventHandler eventHandler = new EventHandler() {
+            @Override
+            public void afterEvent(int event, int result, Object data) {
+                Message msg = new Message();
+                msg.what = -3;
+                msg.arg1 = event;
+                msg.arg2 = result;
+                msg.obj = data;
+                handler.sendMessage(msg);
+            }
+        };
+        //注册回调监听接口
+        SMSSDK.registerEventHandler(eventHandler);
     }
 
     private int getDayByHotel() {
@@ -830,4 +892,180 @@ public class DetailDispFragment extends TTBaseFragment{
             travelManager.AppTrace(code, myMsg);
         }
     }
+
+    private void PhoneConfirm() {
+        View popupWindowView = getActivity().getLayoutInflater().inflate(R.layout.travel_popup_bind_phone, null);
+        //内容，高度，宽度
+        popupWindow = new PopupWindow(popupWindowView, ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+        //动画效果
+        popupWindow.setAnimationStyle(R.style.AnimationBottomFade);
+        //菜单背景色
+        ColorDrawable dw = new ColorDrawable(0xffffffff);
+        popupWindow.setBackgroundDrawable(dw);
+        //显示位置
+        popupWindow.showAtLocation(getActivity().getLayoutInflater().inflate(R.layout.travel_fragment_detail_disp, null),
+                Gravity.CENTER, 0, 0);
+        //设置背景半透明
+        backgroundAlpha(0.5f);
+        //关闭事件
+        popupWindow.setOnDismissListener(new popupDismissListener());
+
+        popupWindowView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                /*if( popupWindow!=null && popupWindow.isShowing()){
+                    popupWindow.dismiss();
+                    popupWindow=null;
+                }*/
+                // 这里如果返回true的话，touch事件将被拦截
+                // 拦截后 PopupWindow的onTouchEvent不被调用，这样点击外部区域无法dismiss
+                return false;
+            }
+        });
+
+        phone = (EditText)popupWindowView.findViewById(R.id.phone);
+        code = (EditText)popupWindowView.findViewById(R.id.code);
+        requestIdentifyingCode = (Button)popupWindowView.findViewById(R.id.request_identifying_code);
+        confirmButton = (Button) popupWindowView.findViewById(R.id.confirm_button);
+
+        View.OnClickListener popMarital = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.request_identifying_code:
+                        reqCode();
+                        break;
+                    case R.id.confirm_button:
+                        confirm();
+                        break;
+                }
+            }
+        };
+        requestIdentifyingCode.setOnClickListener(popMarital);
+        confirmButton.setOnClickListener(popMarital);
+    }
+
+    public void backgroundAlpha(float bgAlpha) {
+        WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+        lp.alpha = bgAlpha; //0.0-1.0
+        getActivity().getWindow().setAttributes(lp);
+    }
+
+    class popupDismissListener implements PopupWindow.OnDismissListener{
+
+        @Override
+        public void onDismiss() {
+            backgroundAlpha(1f);
+        }
+
+    }
+
+    private void reqCode() {
+        String phoneNum = phone.getText().toString().trim();
+        if (TextUtils.isEmpty(phoneNum)) {
+            Toast.makeText(getActivity(), "手机号码不能为空", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        SMSSDK.getVerificationCode(countryCode, phoneNum);
+
+        code.setFocusable(true);
+        code.setFocusableInTouchMode(true);
+        code.requestFocus();
+        intputManager.toggleSoftInputFromWindow(code.getWindowToken(), 1, 0);
+
+        requestIdentifyingCode.setClickable(false);
+        requestIdentifyingCode.setBackgroundResource(R.drawable.request_identifying_code_clicked);
+        //开始倒计时
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (; i > 0; i--) {
+                    handler.sendEmptyMessage(-1);
+                    if (i <= 0) {
+                        break;
+                    }
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                handler.sendEmptyMessage(-2);
+            }
+        }).start();
+    }
+
+    private void confirm() {
+        String phoneNum = phone.getText().toString().trim();
+        String pthoneCode = code.getText().toString().trim();
+        if (TextUtils.isEmpty(phoneNum)) {
+            Toast.makeText(getActivity(), "手机号码不能为空", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(pthoneCode)) {
+            Toast.makeText(getActivity(), "验证码不能为空", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        confirmButton.setBackgroundResource(R.drawable.login_button_clicked);
+        SMSSDK.submitVerificationCode(countryCode, phoneNum, pthoneCode);
+        intputManager.hideSoftInputFromWindow(code.getWindowToken(), 0);
+    }
+
+    private void ShortMessageOK() {
+        imContactManager.reqInfoModify(imLoginManager.getLoginId(), IMBuddy.ModifyType.PHONE, phone.getText().toString());
+        Intent collect = new Intent(getActivity(), CollectActivity.class);
+        startActivityForResult(collect, Activity.RESULT_FIRST_USER);
+    }
+
+    Handler handler = new Handler() {
+        public void handleMessage(Message msg) {
+            if (msg.what == -1) {
+                requestIdentifyingCode.setText(i + " s");
+            } else if (msg.what == -2) {
+                requestIdentifyingCode.setText("重新发送");
+                requestIdentifyingCode.setClickable(true);
+                requestIdentifyingCode.setBackgroundResource(R.drawable.request_identifying_code);
+                i = 60;
+            } else {
+                int event = msg.arg1;
+                int result = msg.arg2;
+                Object data = msg.obj;
+                Log.e("asd", "event=" + event + "  result=" + result + "  ---> result=-1 success , result=0 error");
+                if (result == SMSSDK.RESULT_COMPLETE) {
+                    // 短信注册成功后，返回MainActivity,然后提示
+                    if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
+                        // 提交验证码成功,调用注册接口，之后直接登录
+                        //当号码来自短信注册页面时调用登录注册接口
+                        //当号码来自绑定页面时调用绑定手机号码接口
+                        confirmButton.setBackgroundResource(R.drawable.login_button);
+                        Toast.makeText(getActivity(), "短信验证成功",
+                                Toast.LENGTH_SHORT).show();
+                        popupWindow.dismiss();
+                        ShortMessageOK();
+
+                    } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+                        Toast.makeText(getActivity(), "验证码已经发送", Toast.LENGTH_SHORT).show();
+                    } else {
+                        ((Throwable) data).printStackTrace();
+                    }
+                } else if (result == SMSSDK.RESULT_ERROR) {
+                    try {
+                        confirmButton.setBackgroundResource(R.drawable.login_button);
+                        Throwable throwable = (Throwable) data;
+                        throwable.printStackTrace();
+                        JSONObject object = new JSONObject(throwable.getMessage());
+                        String des = object.optString("detail");//错误描述
+                        int status = object.optInt("status");//错误代码
+                        if (status > 0 && !TextUtils.isEmpty(des)) {
+                            Log.e("asd", "des: " + des);
+                            Toast.makeText(getActivity(), des, Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    } catch (Exception e) {
+                        //do something
+                    }
+                }
+            }
+        }
+    };
 }

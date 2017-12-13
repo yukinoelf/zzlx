@@ -254,7 +254,7 @@ bool CInterLoginStrategy::doLogin(const std::string &strName, const std::string 
 			log("regist name %s pwd %s md5 %s", strName.c_str(), pwdOri.c_str(), pwdLast.c_str());
 			insertSql += "(name,password,salt,nick,sex,domain,phone,email,avatar,departId,status,sign_info,created,updated)";
 			insertSql += "values('" + strName + "','" + pwdLast + "','" + salt + "','";
-			insertSql += strName+"',0,0,'"+strName+"','email','avatar',1,0,'',1482030230,1482030230);";
+			insertSql += strName+"',0,0,'"+"','email','avatar',1,0,'',1482030230,1482030230);";
         	CResultSet* insertResultSet = pDBConn->ExecuteQuery(insertSql.c_str());
       log("sql %s",insertSql.c_str());
 			if(insertResultSet)
@@ -266,8 +266,8 @@ bool CInterLoginStrategy::doLogin(const std::string &strName, const std::string 
                 user.set_user_gender(0);
                 user.set_user_real_name(strName);
                 user.set_user_domain("");
-                user.set_user_tel(strName);
-                user.set_email("email");
+                user.set_user_tel("");
+                user.set_email("");
                 user.set_avatar_url("avatar");
                 user.set_department_id(1);
                 user.set_status(0);
